@@ -1,8 +1,8 @@
 // ----- Typewriter effect -----
 const roles = [
+  "AI Agent Developer",
   "ERP Manager",
   "Frappe / ERPNext Developer",
-  "AI Agent Developer",
   "Full Stack Developer"
 ];
 const typeEl = document.getElementById('typewriter');
