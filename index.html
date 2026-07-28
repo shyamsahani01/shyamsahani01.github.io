@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Shyam Sunder Sahani — ERP Manager | Frappe Developer</title>
-<meta name="description" content="Portfolio of Shyam Sunder Sahani — ERP Manager & Frappe/ERPNext Developer specializing in custom app development, DocTypes, print formats and reports." />
+<meta name="description" content="Portfolio of Shyam Sunder Sahani — ERP Manager & Frappe/ERPNext Developer specializing in custom app development, DocTypes, print formats and reports, plus AI agent development with MCP, RAG and LLMs." />
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,7 +61,8 @@
         6+ years writing <strong>Python, PHP &amp; JavaScript</strong> on top of
         <strong>MySQL &amp; MS SQL</strong> — with deep, hands-on expertise building and
         customizing <strong>Frappe / ERPNext</strong> systems end-to-end, from custom apps and
-        DocTypes to reports and workflow automation, plus <strong>React Native</strong> mobile
+        DocTypes to reports and workflow automation. Lately also building
+        <strong>AI agents</strong> (MCP, RAG, LLMs) and <strong>React Native</strong> mobile
         apps in my own time.
       </p>
       <div class="hero-cta">
@@ -139,12 +140,14 @@
       <span>PHP</span><span>•</span><span>JAVASCRIPT</span><span>•</span><span>JQUERY</span><span>•</span>
       <span>MYSQL</span><span>•</span><span>MS SQL</span><span>•</span><span>GITHUB</span><span>•</span>
       <span>LARAVEL</span><span>•</span><span>CODEIGNITER</span><span>•</span><span>REACT NATIVE</span><span>•</span>
+      <span>AI AGENTS</span><span>•</span><span>MCP</span><span>•</span><span>RAG</span><span>•</span><span>OLLAMA</span><span>•</span>
     </span>
     <span class="marquee-group" aria-hidden="true">
       <span>FRAPPE</span><span>•</span><span>ERPNEXT</span><span>•</span><span>PYTHON</span><span>•</span>
       <span>PHP</span><span>•</span><span>JAVASCRIPT</span><span>•</span><span>JQUERY</span><span>•</span>
       <span>MYSQL</span><span>•</span><span>MS SQL</span><span>•</span><span>GITHUB</span><span>•</span>
       <span>LARAVEL</span><span>•</span><span>CODEIGNITER</span><span>•</span><span>REACT NATIVE</span><span>•</span>
+      <span>AI AGENTS</span><span>•</span><span>MCP</span><span>•</span><span>RAG</span><span>•</span><span>OLLAMA</span><span>•</span>
     </span>
   </div>
 </div>
@@ -172,6 +175,17 @@
         <span class="pill pill-accent">Custom Fields &amp; Property Setters</span>
         <span class="pill pill-accent">Hooks</span>
         <span class="pill pill-accent">Data Migration</span>
+      </div>
+    </div>
+    <div class="skill-cat skill-cat-wide reveal">
+      <h3>AI &amp; LLM Engineering</h3>
+      <div class="pills">
+        <span class="pill pill-accent">MCP (Model Context Protocol)</span>
+        <span class="pill pill-accent">Agentic AI / ReAct Agents</span>
+        <span class="pill pill-accent">RAG &amp; Semantic Search</span>
+        <span class="pill pill-accent">LLM Integration (Claude, Ollama)</span>
+        <span class="pill pill-accent">Vector Embeddings</span>
+        <span class="pill pill-accent">Prompt Engineering</span>
       </div>
     </div>
     <div class="skill-cat reveal">
@@ -441,6 +455,28 @@
           <li>Ongoing debugging, patching and production support for live systems</li>
         </ul>
       </div>
+    </div>
+  </div>
+
+  <h3 class="subgroup-title">🤖 AI / LLM Engineering</h3>
+  <div class="projects-grid">
+    <div class="project-card reveal">
+      <div class="project-top">
+        <span class="project-icon">🤖</span>
+        <span class="badge badge-dev">In Development</span>
+      </div>
+      <h3>Gurujan Chat Bot — AI Agent for ERPNext</h3>
+      <p>A ReAct-style AI agent built as a native Frappe app — chats with users over live
+      ERPNext data and explains how the system itself works, using the Model Context Protocol
+      (MCP) to call tools grounded in real data instead of guessing.</p>
+      <ul class="project-detail-list">
+        <li><strong>Architecture:</strong> ReAct agent loop with JSON-constrained decisions — each turn picks its own next tool call (search, read, count, lookup) before answering</li>
+        <li><strong>MCP tool suite:</strong> 10 custom tools — record search/read/count, live doctype schema lookup, linked-record traversal, semantic doc/code/catalog search, and permission-checked create/update with required user confirmation</li>
+        <li><strong>Models:</strong> runs against local Ollama models (qwen2.5-coder) by default, or Claude / OpenAI-compatible cloud APIs</li>
+        <li><strong>Retrieval:</strong> semantic re-ranking of keyword search results with local embeddings (nomic-embed-text) across Frappe/ERPNext docs, the app catalog and source code</li>
+        <li><strong>Reliability:</strong> brace-depth JSON extraction, a regex-checked false-claim guard on the fallback path, and Frappe's own permission system enforced on every tool call</li>
+      </ul>
+      <div class="tech-tags"><span>Frappe</span><span>MCP</span><span>Ollama</span><span>Claude API</span><span>RAG</span></div>
     </div>
   </div>
 

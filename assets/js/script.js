@@ -2,6 +2,7 @@
 const roles = [
   "ERP Manager",
   "Frappe / ERPNext Developer",
+  "AI Agent Developer",
   "Full Stack Developer"
 ];
 const typeEl = document.getElementById('typewriter');
