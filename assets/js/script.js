@@ -85,17 +85,54 @@ navLinksList.querySelectorAll('a').forEach(link => {
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightboxImg');
 const lightboxClose = document.getElementById('lightboxClose');
-document.querySelectorAll('.project-gallery img').forEach(img => {
-  img.addEventListener('click', () => {
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt;
-    lightbox.classList.add('open');
-  });
-});
+const lightboxPrev = document.getElementById('lightboxPrev');
+const lightboxNext = document.getElementById('lightboxNext');
+const lightboxTitle = document.getElementById('lightboxTitle');
+const lightboxCaption = document.getElementById('lightboxCaption');
+const lightboxCounter = document.getElementById('lightboxCounter');
+
+let galleryImgs = [];
+let galleryIndex = 0;
+
+function updateLightbox() {
+  const img = galleryImgs[galleryIndex];
+  if (!img) return;
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt;
+  const card = img.closest('.project-card');
+  lightboxTitle.textContent = card ? (card.querySelector('h3')?.textContent.trim() || '') : '';
+  lightboxCaption.textContent = img.alt || '';
+  const multi = galleryImgs.length > 1;
+  lightboxCounter.textContent = multi ? `${galleryIndex + 1} / ${galleryImgs.length}` : '';
+  lightboxPrev.style.display = multi ? 'flex' : 'none';
+  lightboxNext.style.display = multi ? 'flex' : 'none';
+}
+function openLightbox(imgs, index) {
+  galleryImgs = imgs;
+  galleryIndex = index;
+  updateLightbox();
+  lightbox.classList.add('open');
+}
 function closeLightbox() {
   lightbox.classList.remove('open');
   lightboxImg.src = '';
 }
+document.querySelectorAll('.project-gallery').forEach(gallery => {
+  const imgs = Array.from(gallery.querySelectorAll('img'));
+  imgs.forEach((img, i) => {
+    img.addEventListener('click', () => openLightbox(imgs, i));
+  });
+});
+if (lightboxPrev) lightboxPrev.addEventListener('click', (e) => {
+  e.stopPropagation();
+  galleryIndex = (galleryIndex - 1 + galleryImgs.length) % galleryImgs.length;
+  updateLightbox();
+});
+if (lightboxNext) lightboxNext.addEventListener('click', (e) => {
+  e.stopPropagation();
+  galleryIndex = (galleryIndex + 1) % galleryImgs.length;
+  updateLightbox();
+});
 if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
 if (lightbox) {
   lightbox.addEventListener('click', (e) => {
@@ -103,8 +140,39 @@ if (lightbox) {
   });
 }
 document.addEventListener('keydown', (e) => {
+  if (!lightbox || !lightbox.classList.contains('open')) return;
   if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') lightboxPrev.click();
+  if (e.key === 'ArrowRight') lightboxNext.click();
 });
+
+// ----- Project card "Read more" (collapses long descriptions so cards
+// in the same grid row line up regardless of content length) -----
+function refreshReadMoreVisibility() {
+  document.querySelectorAll('.project-card').forEach(card => {
+    const body = card.querySelector('.project-body');
+    const btn = card.querySelector('.read-more-btn');
+    if (!body || !btn) return;
+    if (card.classList.contains('expanded')) return;
+    btn.classList.toggle('visible', body.scrollHeight > body.clientHeight + 4);
+  });
+}
+document.querySelectorAll('.project-card').forEach(card => {
+  const btn = card.querySelector('.read-more-btn');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    const expanded = card.classList.toggle('expanded');
+    btn.querySelector('.label').textContent = expanded ? 'Read less' : 'Read more';
+  });
+});
+// Text can reflow once webfonts swap in, so re-measure after fonts settle
+// and after full page load, not just on the first requestAnimationFrame.
+requestAnimationFrame(refreshReadMoreVisibility);
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(refreshReadMoreVisibility);
+}
+window.addEventListener('load', refreshReadMoreVisibility);
+window.addEventListener('resize', refreshReadMoreVisibility);
 
 // ----- Theme toggle -----
 const themeToggle = document.getElementById('themeToggle');

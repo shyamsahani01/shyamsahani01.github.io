@@ -23,6 +23,7 @@
   --section-tint: rgba(255, 255, 255, 0.02);
   --blob-opacity: 0.35;
   --blob-opacity-3: 0.18;
+  --card-fade-solid: #10162a;
   color-scheme: dark;
 }
 
@@ -47,6 +48,7 @@
   --section-tint: rgba(10, 20, 40, 0.03);
   --blob-opacity: 0.16;
   --blob-opacity-3: 0.1;
+  --card-fade-solid: #ffffff;
   color-scheme: light;
 }
 
@@ -812,12 +814,33 @@ ul { list-style: none; }
   backdrop-filter: blur(4px);
 }
 .lightbox.open { display: flex; }
+.lightbox-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: min(92vw, 900px);
+  max-height: 92vh;
+}
 .lightbox img {
   max-width: min(92vw, 900px);
-  max-height: 88vh;
+  max-height: 74vh;
   width: auto;
   border-radius: 10px;
   box-shadow: 0 20px 60px -10px rgba(0,0,0,0.6);
+}
+.lightbox-info {
+  margin-top: 16px;
+  text-align: center;
+  color: #fff;
+  max-width: 700px;
+}
+.lightbox-info h4 { font-size: 1.05rem; margin-bottom: 4px; }
+.lightbox-info p { font-size: 0.86rem; color: rgba(255,255,255,0.68); margin-bottom: 8px; }
+.lightbox-counter {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 1px;
 }
 .lightbox-close {
   position: absolute;
@@ -830,6 +853,32 @@ ul { list-style: none; }
   font-size: 1.4rem;
   display: flex; align-items: center; justify-content: center;
   cursor: pointer;
+  z-index: 2;
+}
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+  font-size: 1.8rem;
+  line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: background .2s;
+  z-index: 2;
+}
+.lightbox-nav:hover { background: rgba(255,255,255,0.2); }
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+@media (max-width: 640px) {
+  .lightbox-nav { width: 38px; height: 38px; font-size: 1.4rem; }
+  .lightbox-prev { left: 6px; }
+  .lightbox-next { right: 6px; }
+  .lightbox-info h4 { font-size: 0.95rem; }
 }
 .project-card:hover {
   transform: translateY(-6px);
@@ -850,7 +899,7 @@ ul { list-style: none; }
 .badge-current { background: rgba(36, 144, 239, 0.12); color: var(--accent-ink); border: 1px solid rgba(36,144,239,0.35); }
 .project-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
 .project-card p { color: var(--text-dim); font-size: 0.92rem; margin-bottom: 12px; }
-.project-detail-list { color: var(--text-dim); font-size: 0.86rem; margin-bottom: 16px; flex-grow: 1; }
+.project-detail-list { color: var(--text-dim); font-size: 0.86rem; margin-bottom: 16px; }
 .project-detail-list li { position: relative; padding-left: 16px; margin-bottom: 7px; }
 .project-detail-list li::before {
   content: '';
@@ -860,6 +909,44 @@ ul { list-style: none; }
   background: var(--accent-2);
 }
 .project-detail-list strong { color: var(--text); }
+
+/* Collapsed-by-default project copy so cards in the same grid row line up
+   regardless of how much a given project has to say; "Read more" expands. */
+.project-body {
+  position: relative;
+  max-height: 130px;
+  overflow: hidden;
+  transition: max-height .4s ease;
+}
+.project-card.expanded .project-body { max-height: 2400px; }
+.project-body::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 38px;
+  background: linear-gradient(to bottom, transparent, var(--card-fade-solid));
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity .3s;
+}
+.project-card.expanded .project-body::after { opacity: 0; }
+.read-more-btn {
+  display: none;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  padding: 4px 0 16px;
+  color: var(--accent-ink);
+  font-weight: 600;
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+.read-more-btn.visible { display: inline-flex; }
+.read-more-btn svg { width: 13px; height: 13px; transition: transform .3s; }
+.project-card.expanded .read-more-btn svg { transform: rotate(180deg); }
+.project-card .tech-tags { margin-top: auto; }
 .expertise-grid .project-card { padding: 22px; }
 .expertise-grid .project-icon { font-size: 1.6rem; }
 .expertise-grid h3 { font-size: 1rem; }
@@ -1028,16 +1115,15 @@ ul { list-style: none; }
   .hero-grid { grid-template-columns: 1fr; text-align: center; }
   .hero-content { text-align: center; }
   .hero-content .hero-cta, .hero-content .hero-socials { justify-content: center; }
-  .hero-visual { width: 190px; height: 190px; order: -1; margin-bottom: 8px; }
-  .ring-1 { width: 100px; height: 100px; }
-  .ring-2 { width: 135px; height: 135px; }
-  .ring-3 { width: 165px; height: 165px; }
-  .avatar-core { width: 85px; height: 85px; }
-  .orbit-a { width: 100px; height: 100px; margin: -50px 0 0 -50px; }
-  .orbit-b, .orbit-d { width: 135px; height: 135px; margin: -67.5px 0 0 -67.5px; }
-  .orbit-c, .orbit-e { width: 165px; height: 165px; margin: -82.5px 0 0 -82.5px; }
-  .orbit-icon { width: 26px; height: 26px; }
-  .orbit-icon svg { width: 12px; height: 12px; }
+  /* Mobile hero: just the photo, right under the logo — the orbiting rings
+     and floating tech badges stay a desktop-only flourish. */
+  .hero-visual { width: 120px; height: 120px; order: -1; margin-bottom: 4px; }
+  .orbit-glow, .orbit-ring, .orbit { display: none; }
+  .avatar-core {
+    width: 120px; height: 120px;
+    animation: none;
+    box-shadow: 0 0 0 3px rgba(36, 144, 239, 0.5), 0 0 24px -8px rgba(36, 144, 239, 0.5);
+  }
 
   /* Upwork-style flow on mobile: intro, then straight into projects,
      then the rest of the info (skills, experience, education, contact). */
