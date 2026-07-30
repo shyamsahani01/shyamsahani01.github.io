@@ -132,7 +132,7 @@
 
 <main>
 
-<div class="marquee">
+<div class="marquee" id="marquee">
   <div class="marquee-track">
     <span class="marquee-group">
       <span>FRAPPE</span><span>•</span><span>ERPNEXT</span><span>•</span><span>PYTHON</span><span>•</span>
@@ -457,32 +457,7 @@
     </div>
   </div>
 
-  <h3 class="subgroup-title">🤖 AI / LLM Engineering</h3>
-  <div class="projects-grid">
-    <div class="project-card reveal">
-      <div class="project-gallery project-gallery--single">
-        <img src="assets/img/projects/chatbot-1-query.jpg" alt="Gurujan Chat Bot answering a query inside the ERPNext desk" loading="lazy" />
-      </div>
-      <div class="project-top">
-        <span class="project-icon">🤖</span>
-        <span class="badge badge-dev">In Development</span>
-      </div>
-      <h3>Gurujan Chat Bot — AI Agent for ERPNext</h3>
-      <p>A ReAct-style AI agent built as a native Frappe app — chats with users over live
-      ERPNext data and explains how the system itself works, using the Model Context Protocol
-      (MCP) to call tools grounded in real data instead of guessing.</p>
-      <ul class="project-detail-list">
-        <li><strong>Architecture:</strong> ReAct agent loop with JSON-constrained decisions — each turn picks its own next tool call (search, read, count, lookup) before answering</li>
-        <li><strong>MCP tool suite:</strong> 10 custom tools — record search/read/count, live doctype schema lookup, linked-record traversal, semantic doc/code/catalog search, and permission-checked create/update with required user confirmation</li>
-        <li><strong>Models:</strong> runs against local Ollama models (qwen2.5-coder) by default, or Claude / OpenAI-compatible cloud APIs</li>
-        <li><strong>Retrieval:</strong> semantic re-ranking of keyword search results with local embeddings (nomic-embed-text) across Frappe/ERPNext docs, the app catalog and source code</li>
-        <li><strong>Reliability:</strong> brace-depth JSON extraction, a regex-checked false-claim guard on the fallback path, and Frappe's own permission system enforced on every tool call</li>
-      </ul>
-      <div class="tech-tags"><span>Frappe</span><span>MCP</span><span>Ollama</span><span>Claude API</span><span>RAG</span></div>
-    </div>
-  </div>
-
-  <h3 class="subgroup-title">💼 Featured ERPNext Projects</h3>
+  <h3 class="subgroup-title">💼 Projects</h3>
   <div class="projects-grid">
     <div class="project-card reveal">
       <div class="project-gallery">
@@ -496,7 +471,7 @@
         <span class="project-icon">🏭</span>
         <span class="badge badge-current">Current</span>
       </div>
-      <h3>ERPNext — Classic Signages</h3>
+      <h3>ERPNext Development — Classic Signages</h3>
       <p>Ongoing ERPNext implementation and support, upgraded and maintained across
       <strong>v15 and v16</strong> for a signage &amp; branding manufacturing business.</p>
       <ul class="project-detail-list">
@@ -513,7 +488,7 @@
         <span class="project-icon">🏢</span>
         <span class="badge badge-live">Live</span>
       </div>
-      <h3>ERPNext — Pinkcity Jewel House</h3>
+      <h3>ERPNext Development — Pinkcity Jewel House</h3>
       <p>Full lifecycle ERPNext implementation on the Frappe framework, carried through
       <strong>v13 → v14 → v15</strong> upgrades — configured, customized and supported end-to-end
       for a jewellery retail business.</p>
@@ -526,42 +501,7 @@
       <div class="tech-tags"><span>Frappe</span><span>Python</span><span>ERPNext</span></div>
       <a href="https://erp.pinkcityindia.com" target="_blank" rel="noopener" class="project-link">Visit site →</a>
     </div>
-  </div>
 
-  <h3 class="subgroup-title">🌐 Other Web Projects</h3>
-  <div class="projects-grid projects-grid-secondary">
-    <div class="project-card reveal">
-      <div class="project-gallery">
-        <img src="assets/img/projects/golf-1-hero.jpg" alt="George Gankas Golf website hero section" loading="lazy" />
-        <img src="assets/img/projects/golf-2-interface.jpg" alt="George Gankas Golf member interface" loading="lazy" />
-        <img src="assets/img/projects/golf-3-curriculum.jpg" alt="George Gankas Golf course curriculum" loading="lazy" />
-      </div>
-      <div class="project-top">
-        <span class="project-icon">⛳</span>
-        <span class="badge badge-live">Live</span>
-      </div>
-      <h3>George Gankas Golf</h3>
-      <p>Golf learning platform with 13+ course guides managed through a custom admin panel,
-      plus a community area where users post, comment and like.</p>
-      <div class="tech-tags"><span>PHP</span><span>JavaScript</span><span>Admin Panel</span></div>
-      <a href="https://www.georgegankas.golf/" target="_blank" rel="noopener" class="project-link">Visit site →</a>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-top">
-        <span class="project-icon">🎮</span>
-        <span class="badge badge-live">Live</span>
-      </div>
-      <h3>Maveable</h3>
-      <p>Content platform for PC gaming enthusiasts, fully manageable through a custom-built
-      admin panel.</p>
-      <div class="tech-tags"><span>PHP</span><span>Admin Panel</span></div>
-      <a href="https://maveable.cc/" target="_blank" rel="noopener" class="project-link">Visit site →</a>
-    </div>
-  </div>
-
-  <h3 class="subgroup-title">🚀 Currently Building — Gurujan App Family</h3>
-  <div class="projects-grid projects-grid-secondary">
     <div class="project-card reveal">
       <div class="project-gallery project-gallery--tall">
         <img src="assets/img/projects/hr-1-home.jpg" alt="HR Next Gurujan — home screen" loading="lazy" />
@@ -573,7 +513,7 @@
         <span class="project-icon">🧑‍💼</span>
         <span class="badge badge-dev">In Development</span>
       </div>
-      <h3>HR Next Gurujan</h3>
+      <h3>HR Next Gurujan — Employee Self-Service Mobile App</h3>
       <p>Employee self-service mobile app that connects to a <strong>Frappe/ERPNext HR backend</strong> —
       attendance, leave requests, payslips, expense &amp; advance claims, tasks and team info,
       all from the phone.</p>
@@ -581,21 +521,43 @@
     </div>
 
     <div class="project-card reveal">
-      <div class="project-gallery project-gallery--tall">
-        <img src="assets/img/projects/bill-1-home.jpg" alt="Bill Gurujan — home screen" loading="lazy" />
-        <img src="assets/img/projects/bill-2-ledger.jpg" alt="Bill Gurujan — ledger" loading="lazy" />
-        <img src="assets/img/projects/bill-3-items.jpg" alt="Bill Gurujan — items" loading="lazy" />
-        <img src="assets/img/projects/bill-4-reports.jpg" alt="Bill Gurujan — reports" loading="lazy" />
+      <div class="project-gallery">
+        <img src="assets/img/projects/chatbot-1-query.jpg" alt="Gurujan Chat Bot answering a query inside the ERPNext desk" loading="lazy" />
+        <img src="assets/img/projects/chatbot-2-closeup.jpg" alt="Gurujan Chat Bot conversation close-up with tool-call evidence" loading="lazy" />
       </div>
       <div class="project-top">
-        <span class="project-icon">💰</span>
+        <span class="project-icon">🤖</span>
         <span class="badge badge-dev">In Development</span>
       </div>
-      <h3>Bill Gurujan</h3>
-      <p>Offline-first Tally/Khatabook-style accounting app I'm designing and building solo,
-      end to end — fully local storage, Hindi + English support, complete edit history &amp;
-      audit trail on every record.</p>
-      <div class="tech-tags"><span>React Native</span><span>TypeScript</span></div>
+      <h3>AI Chat Assistant for ERPNext — Gurujan Chat Bot</h3>
+      <p>A ReAct-style AI agent built as a native Frappe app — chats with users over live
+      ERPNext data and explains how the system itself works, using the Model Context Protocol
+      (MCP) to call tools grounded in real data instead of guessing.</p>
+      <ul class="project-detail-list">
+        <li><strong>Architecture:</strong> ReAct agent loop with JSON-constrained decisions — each turn picks its own next tool call (search, read, count, lookup) before answering</li>
+        <li><strong>MCP tool suite:</strong> 10 custom tools — record search/read/count, live doctype schema lookup, linked-record traversal, semantic doc/code/catalog search, and permission-checked create/update with required user confirmation</li>
+        <li><strong>Models:</strong> runs against local Ollama models (qwen2.5-coder) by default, or Claude / OpenAI-compatible cloud APIs</li>
+        <li><strong>Retrieval:</strong> semantic re-ranking of keyword search results with local embeddings (nomic-embed-text) across Frappe/ERPNext docs, the app catalog and source code</li>
+        <li><strong>Reliability:</strong> brace-depth JSON extraction, a regex-checked false-claim guard on the fallback path, and Frappe's own permission system enforced on every tool call</li>
+      </ul>
+      <div class="tech-tags"><span>Frappe</span><span>MCP</span><span>Ollama</span><span>Claude API</span><span>RAG</span></div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-gallery">
+        <img src="assets/img/projects/golf-1-hero.jpg" alt="George Gankas Golf website hero section" loading="lazy" />
+        <img src="assets/img/projects/golf-2-interface.jpg" alt="George Gankas Golf member interface" loading="lazy" />
+        <img src="assets/img/projects/golf-3-curriculum.jpg" alt="George Gankas Golf course curriculum" loading="lazy" />
+      </div>
+      <div class="project-top">
+        <span class="project-icon">⛳</span>
+        <span class="badge badge-live">Live</span>
+      </div>
+      <h3>George Gankas Golf — Golf Learning Platform &amp; Community</h3>
+      <p>Golf learning platform with 13+ course guides managed through a custom admin panel,
+      plus a community area where users post, comment and like.</p>
+      <div class="tech-tags"><span>PHP</span><span>JavaScript</span><span>Admin Panel</span></div>
+      <a href="https://www.georgegankas.golf/" target="_blank" rel="noopener" class="project-link">Visit site →</a>
     </div>
 
     <div class="project-card reveal">
@@ -609,9 +571,27 @@
         <span class="project-icon">🩺</span>
         <span class="badge badge-dev">In Development</span>
       </div>
-      <h3>Health Gurujan</h3>
+      <h3>Health Gurujan — Personal Health Record Tracker</h3>
       <p>Personal health record tracker — doctors, visits, tests, medicines &amp; documents in one
       place, with on-device OCR document scanning and medicine info lookup.</p>
+      <div class="tech-tags"><span>React Native</span><span>TypeScript</span></div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-gallery project-gallery--tall">
+        <img src="assets/img/projects/bill-1-home.jpg" alt="Bill Gurujan — home screen" loading="lazy" />
+        <img src="assets/img/projects/bill-2-ledger.jpg" alt="Bill Gurujan — ledger" loading="lazy" />
+        <img src="assets/img/projects/bill-3-items.jpg" alt="Bill Gurujan — items" loading="lazy" />
+        <img src="assets/img/projects/bill-4-reports.jpg" alt="Bill Gurujan — reports" loading="lazy" />
+      </div>
+      <div class="project-top">
+        <span class="project-icon">💰</span>
+        <span class="badge badge-dev">In Development</span>
+      </div>
+      <h3>Bill Gurujan — Accounting App</h3>
+      <p>Offline-first Tally/Khatabook-style accounting app I'm designing and building solo,
+      end to end — fully local storage, Hindi + English support, complete edit history &amp;
+      audit trail on every record.</p>
       <div class="tech-tags"><span>React Native</span><span>TypeScript</span></div>
     </div>
   </div>
