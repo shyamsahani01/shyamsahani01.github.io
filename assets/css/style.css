@@ -1150,12 +1150,14 @@ ul { list-style: none; }
   .hero-eyebrow { font-size: 0.85rem; margin-bottom: 10px; }
   .hero-name { font-size: clamp(1.9rem, 8vw, 2.5rem); margin-bottom: 8px; }
   .hero-role { font-size: 1.05rem; letter-spacing: 0.3px; margin-bottom: 18px; }
-  .hero-desc { font-size: 1rem; line-height: 1.7; max-width: 100%; margin-bottom: 26px; }
+  /* Left-align the paragraph itself — centering ragged multi-line body copy
+     reads as messy/misaligned even though every line technically wraps fine. */
+  .hero-desc { font-size: 1rem; line-height: 1.7; max-width: 100%; margin-bottom: 26px; text-align: left; }
 
-  /* Upwork-style flow on mobile: intro, then straight into projects,
-     then the rest of the info (skills, experience, education, contact). */
-  #marquee { order: 1; }
-  #projects { order: 2; }
+  /* Upwork-style flow on mobile: intro, then straight into projects (no
+     marquee strip in between), then the rest of the info. */
+  #projects { order: 1; }
+  #marquee { order: 2; }
   #skills { order: 3; }
   #experience { order: 4; }
   #education { order: 5; }
