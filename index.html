@@ -460,7 +460,9 @@
   <h3 class="subgroup-title">🤖 AI / LLM Engineering</h3>
   <div class="projects-grid">
     <div class="project-card reveal">
-      <img class="project-thumb" src="assets/img/projects/gurujan-chatbot.jpg" alt="Gurujan Chat Bot answering a query inside the ERPNext desk" loading="lazy" />
+      <div class="project-gallery project-gallery--single">
+        <img src="assets/img/projects/chatbot-1-query.jpg" alt="Gurujan Chat Bot answering a query inside the ERPNext desk" loading="lazy" />
+      </div>
       <div class="project-top">
         <span class="project-icon">🤖</span>
         <span class="badge badge-dev">In Development</span>
@@ -483,7 +485,13 @@
   <h3 class="subgroup-title">💼 Featured ERPNext Projects</h3>
   <div class="projects-grid">
     <div class="project-card reveal">
-      <img class="project-thumb" src="assets/img/projects/classic-signages.jpg" alt="ERPNext desk showing installed modules for Classic Signages" loading="lazy" />
+      <div class="project-gallery">
+        <img src="assets/img/projects/erp-1-desk.jpg" alt="ERPNext desk — all installed business modules" loading="lazy" />
+        <img src="assets/img/projects/erp-2-hr.jpg" alt="HR — employee records list" loading="lazy" />
+        <img src="assets/img/projects/erp-3-stock.jpg" alt="Stock module — inventory value and warehouses" loading="lazy" />
+        <img src="assets/img/projects/erp-4-selling.jpg" alt="Selling module — sales orders with live status" loading="lazy" />
+        <img src="assets/img/projects/erp-5-buying.jpg" alt="Buying module" loading="lazy" />
+      </div>
       <div class="project-top">
         <span class="project-icon">🏭</span>
         <span class="badge badge-current">Current</span>
@@ -523,7 +531,11 @@
   <h3 class="subgroup-title">🌐 Other Web Projects</h3>
   <div class="projects-grid projects-grid-secondary">
     <div class="project-card reveal">
-      <img class="project-thumb" src="assets/img/projects/george-gankas-golf.jpg" alt="George Gankas Golf website hero section" loading="lazy" />
+      <div class="project-gallery">
+        <img src="assets/img/projects/golf-1-hero.jpg" alt="George Gankas Golf website hero section" loading="lazy" />
+        <img src="assets/img/projects/golf-2-interface.jpg" alt="George Gankas Golf member interface" loading="lazy" />
+        <img src="assets/img/projects/golf-3-curriculum.jpg" alt="George Gankas Golf course curriculum" loading="lazy" />
+      </div>
       <div class="project-top">
         <span class="project-icon">⛳</span>
         <span class="badge badge-live">Live</span>
@@ -551,7 +563,12 @@
   <h3 class="subgroup-title">🚀 Currently Building — Gurujan App Family</h3>
   <div class="projects-grid projects-grid-secondary">
     <div class="project-card reveal">
-      <img class="project-thumb project-thumb-tall" src="assets/img/projects/hr-next-gurujan.jpg" alt="HR Next Gurujan app home screen" loading="lazy" />
+      <div class="project-gallery project-gallery--tall">
+        <img src="assets/img/projects/hr-1-home.jpg" alt="HR Next Gurujan — home screen" loading="lazy" />
+        <img src="assets/img/projects/hr-2-attendance.jpg" alt="HR Next Gurujan — attendance" loading="lazy" />
+        <img src="assets/img/projects/hr-3-leave.jpg" alt="HR Next Gurujan — leave requests" loading="lazy" />
+        <img src="assets/img/projects/hr-4-payslips.jpg" alt="HR Next Gurujan — payslips" loading="lazy" />
+      </div>
       <div class="project-top">
         <span class="project-icon">🧑‍💼</span>
         <span class="badge badge-dev">In Development</span>
@@ -564,7 +581,12 @@
     </div>
 
     <div class="project-card reveal">
-      <img class="project-thumb project-thumb-tall" src="assets/img/projects/bill-gurujan.jpg" alt="Bill Gurujan app home screen" loading="lazy" />
+      <div class="project-gallery project-gallery--tall">
+        <img src="assets/img/projects/bill-1-home.jpg" alt="Bill Gurujan — home screen" loading="lazy" />
+        <img src="assets/img/projects/bill-2-ledger.jpg" alt="Bill Gurujan — ledger" loading="lazy" />
+        <img src="assets/img/projects/bill-3-items.jpg" alt="Bill Gurujan — items" loading="lazy" />
+        <img src="assets/img/projects/bill-4-reports.jpg" alt="Bill Gurujan — reports" loading="lazy" />
+      </div>
       <div class="project-top">
         <span class="project-icon">💰</span>
         <span class="badge badge-dev">In Development</span>
@@ -577,7 +599,12 @@
     </div>
 
     <div class="project-card reveal">
-      <img class="project-thumb project-thumb-tall" src="assets/img/projects/health-gurujan.jpg" alt="Health Gurujan app home screen" loading="lazy" />
+      <div class="project-gallery project-gallery--tall">
+        <img src="assets/img/projects/health-1-home.jpg" alt="Health Gurujan — home screen" loading="lazy" />
+        <img src="assets/img/projects/health-2-visits.jpg" alt="Health Gurujan — doctor visits" loading="lazy" />
+        <img src="assets/img/projects/health-3-labtests.jpg" alt="Health Gurujan — lab tests" loading="lazy" />
+        <img src="assets/img/projects/health-4-medicines.jpg" alt="Health Gurujan — medicines" loading="lazy" />
+      </div>
       <div class="project-top">
         <span class="project-icon">🩺</span>
         <span class="badge badge-dev">In Development</span>
@@ -677,6 +704,11 @@
 <footer class="footer">
   <p>Designed &amp; built by Shyam Sunder Sahani · <span id="year"></span></p>
 </footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+  <img id="lightboxImg" src="" alt="" />
+</div>
 
 <script src="assets/js/script.js"></script>
 </body>
