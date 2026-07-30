@@ -759,7 +759,21 @@ ul { list-style: none; }
   transition: transform .3s, border-color .3s, box-shadow .3s;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
+.project-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  background: var(--bg-alt);
+  transition: transform .4s ease;
+}
+.project-thumb-tall { aspect-ratio: 4 / 3; }
+.project-card:hover .project-thumb { transform: scale(1.04); }
 .project-card:hover {
   transform: translateY(-6px);
   border-color: var(--accent);
