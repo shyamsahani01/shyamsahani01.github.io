@@ -152,10 +152,10 @@ ul { list-style: none; }
 }
 .nav-avatar img {
   position: absolute;
-  width: 172.6%;
-  height: 215.7%;
-  left: -27.7%;
-  top: -7.7%;
+  width: 132%;
+  height: 164.9%;
+  left: -10.6%;
+  top: 0%;
   max-width: none;
   display: block;
 }
@@ -290,10 +290,10 @@ ul { list-style: none; }
    its display position/zoom inside the circle is adjusted. */
 .avatar-core img {
   position: absolute;
-  width: 172.6%;
-  height: 215.7%;
-  left: -27.7%;
-  top: -7.7%;
+  width: 132%;
+  height: 164.9%;
+  left: -10.6%;
+  top: 0%;
   max-width: none;
   display: block;
 }
