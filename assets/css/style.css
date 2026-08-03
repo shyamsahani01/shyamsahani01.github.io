@@ -1164,9 +1164,9 @@ ul { list-style: none; }
   .hero-eyebrow { font-size: 0.85rem; margin-bottom: 10px; }
   .hero-name { font-size: clamp(1.9rem, 8vw, 2.5rem); margin-bottom: 8px; }
   .hero-role { font-size: 1.05rem; letter-spacing: 0.3px; margin-bottom: 18px; }
-  /* Right-align the paragraph so it wraps as a clean ragged-left block on
+  /* Left-align the paragraph so it reads as a normal ragged-right block on
      mobile instead of centering (which reads as messy/misaligned). */
-  .hero-desc { font-size: 1rem; line-height: 1.7; max-width: 100%; margin-bottom: 26px; text-align: right; }
+  .hero-desc { font-size: 1rem; line-height: 1.7; max-width: 100%; margin-bottom: 26px; text-align: left; }
 
   /* Upwork-style flow on mobile: intro, then straight into projects (no
      marquee strip in between), then the rest of the info. */
